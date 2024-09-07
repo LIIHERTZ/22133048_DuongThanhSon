@@ -1,0 +1,5 @@
+package tuan2.dao;
+
+public interface IUserDao {
+
+}

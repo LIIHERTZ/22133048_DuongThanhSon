@@ -1,0 +1,12 @@
+package vn.iotstar.models;
+
+import java.io.Serializable;
+
+public class UserModel implements Serializable{
+	private int id;
+	private String email;
+	private String password;
+	private String fullname;
+	private String username;
+	private String images;
+}

@@ -1,0 +1,7 @@
+package Tuan_3.dao.impl;
+
+import Tuan_3.dao.IUserDao;
+
+public class UserDaoImpl implements IUserDao{
+
+}

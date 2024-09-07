@@ -1,0 +1,9 @@
+package tuan2.dao;
+
+import java.util.List;
+
+import tuan2.models.UserModel;
+
+public interface IUserDao {
+	List<UserModel> findAll();
+}

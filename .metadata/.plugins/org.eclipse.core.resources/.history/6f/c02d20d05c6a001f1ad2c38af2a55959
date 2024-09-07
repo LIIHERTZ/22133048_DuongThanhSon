@@ -1,0 +1,14 @@
+package tuan2.config;
+
+public class SQLServerConnection {
+	// Register the JDBC driver
+	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+	// Specify the connection URL, username, and password
+	String url = "jdbc:sqlserver://serverName\\instanceName:portNumber;databaseName=yourDatabase";
+	String username = "yourUsername";
+	String password = "yourPassword";
+
+	// Create the connection
+	Connection connection = DriverManager.getConnection(url, username, password);
+}

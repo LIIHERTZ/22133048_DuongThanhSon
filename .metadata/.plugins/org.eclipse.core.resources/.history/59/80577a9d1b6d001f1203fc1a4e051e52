@@ -1,0 +1,8 @@
+package Tuan_3.services;
+
+import Tuan_3.models.UserModel;
+
+public interface IUserService {
+	UserModel login(String username, String password);
+	UserModel get(String username);
+}

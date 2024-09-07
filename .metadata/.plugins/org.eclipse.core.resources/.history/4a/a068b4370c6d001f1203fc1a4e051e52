@@ -1,0 +1,7 @@
+package Tuan_3.services.ipml;
+
+import Tuan_3.services.UserService;
+
+public class UserServiceImpl implements UserService {
+
+}

@@ -1,0 +1,21 @@
+package Tuan_3.services.impl;
+
+import Tuan_3.dao.impl.UserDao;
+import Tuan_3.models.User;
+import Tuan_3.services.UserService;
+
+public class UserServiceImpl implements UserService {
+	UserDao userDao = new UserDao();
+
+	@Override
+	public User login(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User get(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

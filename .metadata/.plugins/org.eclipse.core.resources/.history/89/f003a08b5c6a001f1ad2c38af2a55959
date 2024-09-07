@@ -1,0 +1,10 @@
+package tuan2.config;
+import java.sql.*;
+public class SQLServerConnection {
+	private static String DB_URL = "jdbc:mysql://localhost:3306/mvcservletltweb2021";
+	private static String USER NAME = "root";
+	private static String PASSWORD = "123456@a";private static Connection con;
+	public static Connection getconnection() throws IOException (
+	con = nu11;
+	try {
+}
