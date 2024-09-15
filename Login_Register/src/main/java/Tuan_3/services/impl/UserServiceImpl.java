@@ -10,14 +10,13 @@ import java.sql.ResultSet;
 import Tuan_3.dao.*;
 import Tuan_3.dao.impl.UserDaoImpl;
 
-
 public class UserServiceImpl implements IUserService {
 	IUserDao userDao = new UserDaoImpl();
 
 	public UserModel login(String username, String password) {
 		UserModel user = this.findByUserName(username);
 		if (user != null && password.equals(user.getPassWord())) {
-		return user;
+			return user;
 		}
 		return null;
 	}
@@ -40,11 +39,11 @@ public class UserServiceImpl implements IUserService {
 	public boolean register(String email, String password, String username, String fullname, String phone) {
 		if (userDao.checkExistUsername(username)) {
 			return false;
-			}
-			long millis=System.currentTimeMillis();
-			java.sql.Date date=new java.sql.Date(millis);
-			userDao.insert(new UserModel( email, username, fullname,password,null,5,phone,date));
-			return true;
+		}
+		long millis = System.currentTimeMillis();
+		java.sql.Date date = new java.sql.Date(millis);
+		userDao.insert(new UserModel(email, username, fullname, password, null, 5, phone, date));
+		return true;
 	}
 
 	@Override

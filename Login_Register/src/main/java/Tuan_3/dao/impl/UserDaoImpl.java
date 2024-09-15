@@ -48,7 +48,8 @@ public class UserDaoImpl extends DBConnection implements IUserDao {
 	public void insert(UserModel user) {
 		String sql = "INSERT INTO [User](email, username, fullname, password, avatar, roleid,phone,createddate) VALUES (?,?,?,?,?,?,?,?)";
 		try {
-			conn = new DBConnection().getConnection();
+			new DBConnection();
+			conn = DBConnection.getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getEmail());
 			ps.setString(2, user.getUserName());
@@ -68,7 +69,7 @@ public class UserDaoImpl extends DBConnection implements IUserDao {
 	public UserModel findByUserName(String username) {
 		String sql = "SELECT * FROM [User] WHERE username = ? ";
 		try {
-			conn = new DBConnection().getConnection();
+			conn = DBConnection.getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, username);
 			rs = ps.executeQuery();
@@ -82,7 +83,7 @@ public class UserDaoImpl extends DBConnection implements IUserDao {
 				user.setAvatar(rs.getString("avatar"));
 				user.setRoleid(Integer.parseInt(rs.getString("roleid")));
 				user.setPhone(rs.getString("phone"));
-				user.setCreatedDate(rs.getDate("createdDate"));
+				user.setCreatedDate(rs.getDate("createDate"));
 				return user;
 			}
 		} catch (Exception e) {

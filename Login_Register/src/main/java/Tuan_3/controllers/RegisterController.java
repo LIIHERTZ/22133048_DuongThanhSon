@@ -2,7 +2,6 @@ package Tuan_3.controllers;
 
 import java.io.IOException;
 
-import Tuan_3.Constant;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -11,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import Tuan_3.services.impl.UserServiceImpl;
+import Tuan_3.utils.Constant;
 import Tuan_3.services.*;
 
 @SuppressWarnings("serial")
@@ -50,6 +50,12 @@ public class RegisterController extends HttpServlet {
 		String phone = req.getParameter("phone");
 		IUserService service = new UserServiceImpl();
 		String alertMsg = "";
+		if (username.isEmpty() || password.isEmpty() || email.isEmpty()||fullname.isEmpty()||phone.isEmpty()) {
+			alertMsg = "Thông tin không được rỗng";
+			req.setAttribute("alert", alertMsg);
+			req.getRequestDispatcher(Constant.REGISTER).forward(req, resp);
+			return;
+		}
 		if (service.checkExistEmail(email)) {
 			alertMsg = "Email đã tồn tại!";
 			req.setAttribute("alert", alertMsg);

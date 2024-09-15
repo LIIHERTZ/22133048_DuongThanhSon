@@ -1,0 +1,49 @@
+package Tuan_3.utils;
+
+import java.net.Authenticator;
+import java.util.Properties;
+import java.util.Random;
+
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Message;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MineMessage;
+import Tuan_3.models.UserModel;
+
+public class Email {
+	public String getRandom() {
+		Random rnd = new Random();
+		int number = rnd.nextInt(999999);
+		return String.format("%06d",number);
+	}
+	public boolean sendEmail (UserModel user) {
+		boolean test = false;
+		String toEmail = user.getEmail();
+		String fromEmail ="duongthanhson2004@gmail.com";
+		String password = "123456";
+		try {
+			Properties pr= configEmail(new Properties());
+			Session session = Session.getInstance(pr,new Authenticator() {
+				protected PasswordAuthentication getPasswordAuthentication() {
+					return new PasswordAuthentication (fromEmail,password);
+				}
+			});
+		Message mess = new MineMessage (session);
+		mess.setHeader("Content-Type","text/plain; charset=UTF-8");
+		}
+		
+	}
+	public Properties configEmail(Properties pr) {
+		pr.setProperty("mail.smtp.host", "smtp.gmail.com");
+		pr.setProperty("mail.smtp.port", "587");
+		pr.setProperty("mail.smtp.auth","true");
+		pr.setProperty("mail.smtp.starttls.enable", "true");
+		pr.put("mail.smtp.socketFactory.port", "587");
+		pr.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+			
+		return pr;
+		
+	}
+}

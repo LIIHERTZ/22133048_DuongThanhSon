@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Tool_LapTrinhWeb\Work_Space\LTWeb_Tuan2"/>
 			<item value="D:\Tool_LapTrinhWeb\Work_Space\HelloWorld\src\main\java\Hello\Controllers\Hello.java"/>
 			<item value="C:\Users\Asus\Desktop\Data_Engineer\Lập trình web"/>
 			<item value="D:\Tool_LapTrinhWeb\Work_Space\Servers"/>
@@ -53,6 +54,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="Login_Register"/>
 			<item value="LTWeb_Tuan2"/>
 			<item value="HelloWorld"/>
 			<item value="Helloworld"/>

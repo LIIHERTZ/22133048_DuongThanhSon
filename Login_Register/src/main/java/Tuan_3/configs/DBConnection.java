@@ -6,31 +6,23 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-	private final String serverName ="localhost";
-	private final String dbname = "Login_Register";
-	private final String portNumber ="1433";
-	private final String instance ="";
-	private final String userID ="sa";
-	private final String password = "123456";
-	
-	
-	public Connection getConnection() {
+	private static final String serverName ="localhost";
+	private static final String dbname = "Login_Register";
+	private static final String portNumber ="1433";
+	private static final String instance ="";
+	private static final String userID ="sa";
+	private static final String password = "123456";
+
+	public static Connection getConnection() throws SQLException{
         Connection conn = null;
         try {
             String url = "jdbc:sqlserver://"+serverName+":"+portNumber+"\\" + instance + ";databaseName="+dbname;
+            
             if (instance == null || instance.trim().isEmpty())
             	url = "jdbc:sqlserver://"+serverName+":"+portNumber+ ";databaseName="+dbname;
-            conn = DriverManager.getConnection(url, userID , password);
-            if (conn != null) {
-                DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
-                System.out.println("Driver name: " + dm.getDriverName());
-                System.out.println("Driver version: " + dm.getDriverVersion());
-                System.out.println("Product name: " + dm.getDatabaseProductName());
-                System.out.println("Product version: " + dm.getDatabaseProductVersion());
-        		return conn;
-            }
- 
-        } catch (SQLException ex) {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            return DriverManager.getConnection(url, userID , password);
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }
         return null;
