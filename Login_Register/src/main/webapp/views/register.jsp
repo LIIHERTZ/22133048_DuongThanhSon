@@ -10,7 +10,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/
 bootstrap.min.css"
-	rel="stylesheet"">
+	rel="stylesheet">
 <title>Đăng kí tài khoản</title>
 </head>
 <body>
@@ -20,7 +20,7 @@ bootstrap.min.css"
 				<div class="col-12 col-md-7">
 					<div class="register-form shadow-sm p-4">
 						<h2 class="text-center mb-4">Tạo tài khoản mới</h2>
-						<form action="/LapTrinhWeb/register" method="post">
+						<form action="/Login_Register/register" method="post">
 							<c:if test="${alert != null}">
 								<h3 class="alert alert-danger">${alert}</h3>
 							</c:if> 
@@ -45,6 +45,11 @@ bootstrap.min.css"
 									type="email" class="form-control" id="email" name="email"
 									placeholder="Nhập Email" required>
 							</div>
+							<div class="mb-3">
+								<label for="phone" class="form-label">Phone</label> <input
+									type="text" class="form-control" id="phone" name="phone"
+									placeholder="Nhập phone" required>
+							</div>
 
 							<div class="mb-3">
 								<label for="password" class="form-label">Mật khẩu</label> <input
@@ -66,7 +71,7 @@ bootstrap.min.css"
 
 							<div class="mt-3 text-center">
 								<p>
-									Nếu bạn đã có tài khoản? <a href="/login">Đăng nhập</a>
+									Nếu bạn đã có tài khoản? <a href=/Login_Register/login>Đăng nhập</a>
 								</p>
 							</div>
 						</form>

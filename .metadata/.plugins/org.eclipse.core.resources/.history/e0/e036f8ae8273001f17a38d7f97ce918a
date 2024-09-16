@@ -1,0 +1,10 @@
+package Tuan_3.controllers;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+
+@SuppressWarnings("serial")
+@WebServlet(urlPatterns = "/forgot-password")
+public class ForgotPassword extends HttpServlet{
+
+}

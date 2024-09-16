@@ -32,7 +32,31 @@ p {
 	font-size: 1.2em;
 	color: #555;
 }
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
 </style>
+<script>
+function confirmLogout() {
+    var result = confirm("Bạn có chắc chắn muốn đăng xuất?");
+    if (result) {
+        window.location.href = 'views/logout.jsp';
+    }
+}
+</script>
 </head>
 <body>
 	<div class="container">
@@ -46,6 +70,8 @@ p {
 			out.print("<p>Error: Account not found.</p>");
 		}
 		%>
+		<!-- Nút Logout -->
+		<button class="button" onclick="confirmLogout()">Logout</button>
 	</div>
 </body>
 </html>

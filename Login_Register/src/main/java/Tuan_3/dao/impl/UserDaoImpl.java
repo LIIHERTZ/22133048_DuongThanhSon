@@ -46,7 +46,7 @@ public class UserDaoImpl extends DBConnection implements IUserDao {
 
 	@Override
 	public void insert(UserModel user) {
-		String sql = "INSERT INTO [User](email, username, fullname, password, avatar, roleid,phone,createddate) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO [User](email, username, fullname, password, avatar, roleid,phone,createdate) VALUES (?,?,?,?,?,?,?,?)";
 		try {
 			new DBConnection();
 			conn = DBConnection.getConnection();
@@ -140,6 +140,19 @@ public class UserDaoImpl extends DBConnection implements IUserDao {
 	public boolean checkExistPhone(String phone) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	public void changePassword (String username, String password) {
+		String sql = "UPDATE [User] SET password = ? WHERE username = ?";
+		try {
+			new DBConnection();
+			conn = DBConnection.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, password);
+			ps.setString(2, username);
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

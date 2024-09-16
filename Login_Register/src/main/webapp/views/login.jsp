@@ -24,7 +24,7 @@ bootstrap.min.css"
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-5">
-				<form action="login" method="post">
+				<form action="/Login_Register/login" method="post">
 					<c:if test="${alert != null}">
 						<label class="alert alert-danger">${alert}</label>
 					</c:if>
@@ -42,8 +42,12 @@ bootstrap.min.css"
 					<div class="form-group mt-3" align="center">
 						<!-- Button chuyển hướng tới trang đăng ký -->
 						<button type="button" class="btn btn-secondary"
-							onclick="window.location.href='views/register.jsp'">Đăng
+							onclick="window.location.href='/Login_Register/register'">Đăng
 							ký</button>
+					</div>
+					<div class="form-group mt-3" align="center">
+						<!-- Link quên mật khẩu -->
+						<a href="/Login_Register/forgot-password" class="btn btn-link">Quên mật khẩu?</a>
 					</div>
 				</form>
 			</div>
