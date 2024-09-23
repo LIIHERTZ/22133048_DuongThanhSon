@@ -25,17 +25,35 @@ public class LoginController extends HttpServlet {
 			return;
 		}
 
+		String username = null;
+		String password = null;
 		// Check cookie
 		Cookie[] cookies = req.getCookies();
 		if (cookies != null) {
+//			for (Cookie cookie : cookies) {
+//				if (cookie.getName().equals("username")) {
+//					session = req.getSession(true);
+//					session.setAttribute("username", cookie.getValue());
+//					resp.sendRedirect(req.getContextPath() + "/waiting");
+//					return;
+//				}
+//			}
 			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("username")) {
-					session = req.getSession(true);
-					session.setAttribute("username", cookie.getValue());
-					resp.sendRedirect(req.getContextPath() + "/waiting");
-					return;
-				}
-			}
+		        if (cookie.getName().equals("username")) {
+		            username = cookie.getValue();
+		        } else if (cookie.getName().equals("password")) {
+		            password = cookie.getValue();
+		        }
+		    }
+
+		    // Kiểm tra xem cả username và password đã được tìm thấy hay chưa
+		    if (username != null && password != null) {
+		        session = req.getSession(true);
+		        session.setAttribute("username", username);
+		        session.setAttribute("password", password);
+		        resp.sendRedirect(req.getContextPath() + "/waiting");
+		        return;
+		    }
 		}
 		req.getRequestDispatcher("views/login.jsp").forward(req, resp);
 	}

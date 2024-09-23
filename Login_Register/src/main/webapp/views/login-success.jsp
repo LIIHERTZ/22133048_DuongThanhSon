@@ -74,4 +74,5 @@ function confirmLogout() {
 		<button class="button" onclick="confirmLogout()">Logout</button>
 	</div>
 </body>
+
 </html>
