@@ -21,6 +21,7 @@ public class WaitingController extends HttpServlet {
 			UserModel u = (UserModel) session.getAttribute("account");
 			session.setAttribute("account", u);
             req.setAttribute("account", u);
+            session.setAttribute("userId", u.getId());
 			if (u.getRoleid() == 1) {
 				RequestDispatcher rd =req.getRequestDispatcher("/views/login-success.jsp");
 				rd.forward(req, resp);

@@ -15,7 +15,32 @@ public class UserModel implements Serializable{
 	private String phone;
 	private Date createdDate;
 	private String code;
+	private String images;
 	
+	public UserModel(int id, String email, String userName, String fullName, String passWord, String avatar, int roleid,
+			String phone, Date createdDate, String code, String images) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.userName = userName;
+		this.fullName = fullName;
+		this.passWord = passWord;
+		this.avatar = avatar;
+		this.roleid = roleid;
+		this.phone = phone;
+		this.createdDate = createdDate;
+		this.code = code;
+		this.images = images;
+	}
+
+	public String getImages() {
+		return images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
+	}
+
 	public UserModel() {
 		super();
 	}
